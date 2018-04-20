@@ -155,6 +155,7 @@
                         <outlet property="imageView" destination="b1G-s2-WOE" id="Uqd-IV-gbC"/>
                         <segue destination="rSH-mk-LSc" kind="show" identifier="goToRegister" id="RYY-Jp-NYa"/>
                         <segue destination="WUM-rj-4AH" kind="presentation" modalTransitionStyle="crossDissolve" id="dxu-9v-rop"/>
+                        <segue destination="Kz8-kN-rH8" kind="show" id="Ho7-wK-pJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBX-G0-Wks" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -206,6 +207,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjQ-ej-7Ao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2521" y="105"/>
+        </scene>
+        <!--Register Controller-->
+        <scene sceneID="0fV-wf-C4a">
+            <objects>
+                <viewController id="Kz8-kN-rH8" customClass="QRRegisterController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lRa-kC-Dbm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yqs-PL-e60"/>
+                    </view>
+                    <connections>
+                        <segue destination="rSH-mk-LSc" kind="show" id="Pm4-rS-Y1A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70v-xh-Olt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2209" y="-1588"/>
         </scene>
         <!--Title-->
         <scene sceneID="F5O-Mr-afU">
@@ -329,6 +348,7 @@
         <!--Places View Controller-->
         <scene sceneID="9Ef-92-Yzd">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cyp-OT-7cI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="byo-ZG-NrW" customClass="PlacesViewController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0PU-qW-lQC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -353,7 +373,6 @@
                         <outlet property="tableView" destination="2hl-ub-zP1" id="8xn-O8-F9G"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cyp-OT-7cI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4376.8000000000002" y="-752.47376311844084"/>
         </scene>
@@ -471,6 +490,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Pm4-rS-Y1A"/>
         <segue reference="dxu-9v-rop"/>
         <segue reference="O87-KU-Fzr"/>
     </inferredMetricsTieBreakers>

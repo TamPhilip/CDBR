@@ -21,6 +21,7 @@
 		1C71BA0620892CFA008EC872 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71BA0520892CFA008EC872 /* Models.swift */; };
 		1C71BA08208938CC008EC872 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71BA07208938CC008EC872 /* RegisterController.swift */; };
 		1C71BA0A20894647008EC872 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71BA0920894647008EC872 /* MapController.swift */; };
+		1CEED0F2208A818D00EE3EB0 /* QRRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEED0F1208A818D00EE3EB0 /* QRRegisterController.swift */; };
 		F19A3128F7F7740D036501BA /* Pods_CharityChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAA5339F51D07E072B504E9 /* Pods_CharityChecker.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		1C71BA0520892CFA008EC872 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		1C71BA07208938CC008EC872 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		1C71BA0920894647008EC872 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		1CEED0F1208A818D00EE3EB0 /* QRRegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRRegisterController.swift; sourceTree = "<group>"; };
 		3337096BF335A2214D1ACB91 /* Pods-CharityChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityChecker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharityChecker/Pods-CharityChecker.debug.xcconfig"; sourceTree = "<group>"; };
 		4F4B346C1440038BB2A64767 /* Pods-CharityChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharityChecker/Pods-CharityChecker.release.xcconfig"; sourceTree = "<group>"; };
 		EEAA5339F51D07E072B504E9 /* Pods_CharityChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharityChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				1C71423B2089955B00328C3F /* PlacesViewController.swift */,
 				1C265EF7208A703400079F55 /* GetQRCodeController.swift */,
 				1C265EF9208A750600079F55 /* MainMenuController.swift */,
+				1CEED0F1208A818D00EE3EB0 /* QRRegisterController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C71423C2089955B00328C3F /* PlacesViewController.swift in Sources */,
+				1CEED0F2208A818D00EE3EB0 /* QRRegisterController.swift in Sources */,
 				1C71BA0A20894647008EC872 /* MapController.swift in Sources */,
 				1C265EF8208A703400079F55 /* GetQRCodeController.swift in Sources */,
 				1C71B9FE20892A1B008EC872 /* StartUpController.swift in Sources */,

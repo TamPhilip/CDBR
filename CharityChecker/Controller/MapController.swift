@@ -24,6 +24,10 @@ class MapController: UIViewController {
     var selectedPlace: GMSPlace?
     var selected : Bool = false
     
+    var address : CLLocationCoordinate2D!
+    var addressMarker : GMSMarker!
+    var addressSet : Bool = false
+    
      let defaultLocation = CLLocation(latitude: 45.504166666667, longitude: -73.577222222222)
     
     override func viewDidLoad() {
@@ -47,6 +51,10 @@ class MapController: UIViewController {
         // Add the map to the view, hide it until we've got a location update.
         view.addSubview(mapView)
         mapView.isHidden = true
+        
+        if address != nil{
+            
+        }
     }
     @IBAction func goPlacePressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "goToPlaces", sender: self)
@@ -64,9 +72,11 @@ class MapController: UIViewController {
             mapView.clear()
             
             let marker = GMSMarker(position: (self.selectedPlace?.coordinate)!)
-            marker.title = selectedPlace?.name
+            marker.title = "Set the Dropbox address here?"
+            marker.icon = GMSMarker.markerImage(with: UIColor.blue)
             marker.snippet = selectedPlace?.formattedAddress
             marker.map = mapView
+            
         }
         
         listLikelyPlaces()
@@ -76,6 +86,7 @@ class MapController: UIViewController {
     func listLikelyPlaces() {
         // Clean up from previous sessions.
         likelyPlaces.removeAll()
+        
         
         placesClient.currentPlace(callback: { (placeLikelihoods, error) -> Void in
             if let error = error {
@@ -93,6 +104,12 @@ class MapController: UIViewController {
             }
         })
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        if address != nil{
+            self.addressMarker.map = nil
+        }
+    }
 }
 
 extension MapController: CLLocationManagerDelegate {
@@ -105,6 +122,14 @@ extension MapController: CLLocationManagerDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude,
                                               zoom: zoomLevel)
+        
+        address = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        if addressSet == false{
+            addressMarker = GMSMarker(position: (self.address)!)
+            addressMarker.title = "Set the Dropbox address here?"
+            addressMarker.icon = GMSMarker.markerImage(with: UIColor.blue)
+            addressMarker.map = mapView
+        }
         
         if mapView.isHidden {
             mapView.isHidden = false

@@ -32,6 +32,7 @@ class RegisterController: UIViewController {
     
     let operatorTypeArray = ["Charity","Charity-Authorized","Unaffiliated Collector"]
     var operatorType : String  = ""
+    let address : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,7 @@ class RegisterController: UIViewController {
     
     @IBAction func handleRegister(_ sender: UIButton) {
         if type == "Charity"{
-            //RegistrationKey & Name
+            //TO DO: RegistrationKey & Name
             let registrationKey = firstField.text
             let name = secondField.text
             
@@ -59,16 +60,13 @@ class RegisterController: UIViewController {
             if keystoreManager?.addresses?.count == 0{
                 ks = try! EthereumKeystoreV3(password: registrationKey!)
                 let keydata = try! JSONEncoder().encode(ks!.keystoreParams)
-                print("\(keydata)---------------------------------------------------")
                 FileManager.default.createFile(atPath: userDir + "/keystore"+"/key.json", contents: keydata, attributes: nil)
             }else{
                 ks = keystoreManager?.walletForAddress((keystoreManager?.addresses![0])!) as! EthereumKeystoreV3
             }
-            
-        
         }
         else if type == "Operator"{
-            
+            //TO DO: Name & Telephone &
         }
         else{
             
@@ -99,7 +97,8 @@ class RegisterController: UIViewController {
             
         }
         else if type == "Operator"{
-             firstField.isHidden = true
+            mapButton.isHidden = true
+            firstLabel.text = "Operator Code:"
         }
          navigationItem.title = type
     }

@@ -41,6 +41,7 @@ class LogInController: UIViewController{
     
     @IBAction func handleSignUp(_ sender: Any) {
         if type == "Charity" && buttonOutlet.isHidden == false{
+            //QR DETECTOR
             var detector:CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
             
             var ciImage:CIImage = CIImage(image:imageView.image!)!
@@ -61,11 +62,18 @@ class LogInController: UIViewController{
             }
             buttonOutlet.isHidden = true
             
+            //QR ADDRESS remove
             if qrCodeLink.hasPrefix("ethereum%3A") == true{
                 for _ in "ethereum%3A"{
                     qrCodeLink.removeFirst()
                 }
             }
+            if qrCodeLink.hasSuffix("%3F") == true{
+                for _ in "%3f"{
+                    qrCodeLink.removeLast()
+                }
+            }
+            
               print(qrCodeLink)
             let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
             let keystoreManager = KeystoreManager.managerForPath(userDir + "/keystore")

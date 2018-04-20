@@ -41,5 +41,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Need Camera Permission to read QR Codes</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need Location to provide address</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>To log In using your QR Code</string>
 </dict>
 </plist>

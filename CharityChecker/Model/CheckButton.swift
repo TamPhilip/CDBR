@@ -11,7 +11,7 @@ import ChameleonFramework
 
 class CheckButton : UIButton{
     
-    var highlightedColor = UIColor.clear
+    var highlightedColor = UIColor.lightGray
     {
         didSet{
             if isHighlighted{
@@ -21,7 +21,7 @@ class CheckButton : UIButton{
         }
     }
     
-    var defaultColor = UIColor.flatSkyBlue(){
+    var defaultColor = UIColor.clear{
         didSet{
             if !isHighlighted{
                 backgroundColor = defaultColor
@@ -50,12 +50,12 @@ class CheckButton : UIButton{
     }
     
     func setup(){
-        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.borderColor = UIColor.black.cgColor
         self.layer.borderWidth = 2.0
         self.layer.cornerRadius = self.frame.height/2
         self.clipsToBounds = true
-        backgroundColor = defaultColor
+        backgroundColor = UIColor.clear
         setTitleColor(UIColor.darkGray, for: .highlighted)
-        setTitleColor(UIColor.white, for: .normal)
+        setTitleColor(UIColor.black, for: .normal)
     }
 }

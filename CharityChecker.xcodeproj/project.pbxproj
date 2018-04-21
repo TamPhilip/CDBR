@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C031AD9208BCAF7009F6D91 /* ParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C031AD7208BCAF7009F6D91 /* ParameterCell.swift */; };
+		1C031ADA208BCAF7009F6D91 /* ParameterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C031AD8208BCAF7009F6D91 /* ParameterCell.xib */; };
 		1C265EF8208A703400079F55 /* GetQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C265EF7208A703400079F55 /* GetQRCodeController.swift */; };
 		1C265EFA208A750600079F55 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C265EF9208A750600079F55 /* MainMenuController.swift */; };
 		1C71423C2089955B00328C3F /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71423B2089955B00328C3F /* PlacesViewController.swift */; };
@@ -21,11 +23,14 @@
 		1C71BA0620892CFA008EC872 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71BA0520892CFA008EC872 /* Models.swift */; };
 		1C71BA08208938CC008EC872 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71BA07208938CC008EC872 /* RegisterController.swift */; };
 		1C71BA0A20894647008EC872 /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71BA0920894647008EC872 /* MapController.swift */; };
-		1CEED0F2208A818D00EE3EB0 /* QRRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEED0F1208A818D00EE3EB0 /* QRRegisterController.swift */; };
+		1CDB8975208BA28500F42F09 /* ChangeParameterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB8974208BA28500F42F09 /* ChangeParameterController.swift */; };
+		1CDB8978208BA47600F42F09 /* PublicLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDB8977208BA47600F42F09 /* PublicLocationController.swift */; };
 		F19A3128F7F7740D036501BA /* Pods_CharityChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEAA5339F51D07E072B504E9 /* Pods_CharityChecker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C031AD7208BCAF7009F6D91 /* ParameterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCell.swift; sourceTree = "<group>"; };
+		1C031AD8208BCAF7009F6D91 /* ParameterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParameterCell.xib; sourceTree = "<group>"; };
 		1C265EF7208A703400079F55 /* GetQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQRCodeController.swift; sourceTree = "<group>"; };
 		1C265EF9208A750600079F55 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		1C71423B2089955B00328C3F /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +47,8 @@
 		1C71BA0520892CFA008EC872 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		1C71BA07208938CC008EC872 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		1C71BA0920894647008EC872 /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
-		1CEED0F1208A818D00EE3EB0 /* QRRegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRRegisterController.swift; sourceTree = "<group>"; };
+		1CDB8974208BA28500F42F09 /* ChangeParameterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeParameterController.swift; sourceTree = "<group>"; };
+		1CDB8977208BA47600F42F09 /* PublicLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicLocationController.swift; sourceTree = "<group>"; };
 		3337096BF335A2214D1ACB91 /* Pods-CharityChecker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityChecker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CharityChecker/Pods-CharityChecker.debug.xcconfig"; sourceTree = "<group>"; };
 		4F4B346C1440038BB2A64767 /* Pods-CharityChecker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CharityChecker.release.xcconfig"; path = "Pods/Target Support Files/Pods-CharityChecker/Pods-CharityChecker.release.xcconfig"; sourceTree = "<group>"; };
 		EEAA5339F51D07E072B504E9 /* Pods_CharityChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CharityChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +66,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C031AD6208BC845009F6D91 /* CellModel */ = {
+			isa = PBXGroup;
+			children = (
+				1C031AD7208BCAF7009F6D91 /* ParameterCell.swift */,
+				1C031AD8208BCAF7009F6D91 /* ParameterCell.xib */,
+			);
+			path = CellModel;
+			sourceTree = "<group>";
+		};
 		1C71B9DA20890C8C008EC872 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +109,7 @@
 		1C71B9FA208929D1008EC872 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1C031AD6208BC845009F6D91 /* CellModel */,
 				1C71B9FF20892A6E008EC872 /* CheckButton.swift */,
 				1C71BA0520892CFA008EC872 /* Models.swift */,
 			);
@@ -112,17 +128,58 @@
 		1C71B9FC208929E6008EC872 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1C71B9F8208913AB008EC872 /* QRReaderController.swift */,
-				1C71B9FD20892A1B008EC872 /* StartUpController.swift */,
-				1C71BA0120892CC3008EC872 /* LogInController.swift */,
-				1C71BA07208938CC008EC872 /* RegisterController.swift */,
-				1C71BA0920894647008EC872 /* MapController.swift */,
-				1C71423B2089955B00328C3F /* PlacesViewController.swift */,
-				1C265EF7208A703400079F55 /* GetQRCodeController.swift */,
-				1C265EF9208A750600079F55 /* MainMenuController.swift */,
-				1CEED0F1208A818D00EE3EB0 /* QRRegisterController.swift */,
+				1CDB8976208BA40200F42F09 /* Location */,
+				1CDB8973208BA27000F42F09 /* Change */,
+				1CFD9A3D208AFB24008FBB8A /* QR */,
+				1CFD9A3C208AFB19008FBB8A /* Menu */,
+				1CFD9A3B208AFAF2008FBB8A /* Auth */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1CDB8973208BA27000F42F09 /* Change */ = {
+			isa = PBXGroup;
+			children = (
+				1CDB8974208BA28500F42F09 /* ChangeParameterController.swift */,
+			);
+			path = Change;
+			sourceTree = "<group>";
+		};
+		1CDB8976208BA40200F42F09 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				1C71BA0920894647008EC872 /* MapController.swift */,
+				1C71423B2089955B00328C3F /* PlacesViewController.swift */,
+				1CDB8977208BA47600F42F09 /* PublicLocationController.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		1CFD9A3B208AFAF2008FBB8A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				1C71BA07208938CC008EC872 /* RegisterController.swift */,
+				1C71BA0120892CC3008EC872 /* LogInController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		1CFD9A3C208AFB19008FBB8A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				1C71B9FD20892A1B008EC872 /* StartUpController.swift */,
+				1C265EF9208A750600079F55 /* MainMenuController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		1CFD9A3D208AFB24008FBB8A /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				1C71B9F8208913AB008EC872 /* QRReaderController.swift */,
+				1C265EF7208A703400079F55 /* GetQRCodeController.swift */,
+			);
+			path = QR;
 			sourceTree = "<group>";
 		};
 		BDA10BA6473E7D75CAA5B96E /* Frameworks */ = {
@@ -206,6 +263,7 @@
 				1C71B9F120890C8F008EC872 /* LaunchScreen.storyboard in Resources */,
 				1C71B9EE20890C8F008EC872 /* Assets.xcassets in Resources */,
 				1C71B9EC20890C8C008EC872 /* Main.storyboard in Resources */,
+				1C031ADA208BCAF7009F6D91 /* ParameterCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,16 +354,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C71423C2089955B00328C3F /* PlacesViewController.swift in Sources */,
-				1CEED0F2208A818D00EE3EB0 /* QRRegisterController.swift in Sources */,
 				1C71BA0A20894647008EC872 /* MapController.swift in Sources */,
 				1C265EF8208A703400079F55 /* GetQRCodeController.swift in Sources */,
+				1C031AD9208BCAF7009F6D91 /* ParameterCell.swift in Sources */,
 				1C71B9FE20892A1B008EC872 /* StartUpController.swift in Sources */,
 				1C71B9E720890C8C008EC872 /* AppDelegate.swift in Sources */,
 				1C71BA0220892CC3008EC872 /* LogInController.swift in Sources */,
+				1CDB8978208BA47600F42F09 /* PublicLocationController.swift in Sources */,
 				1C71BA08208938CC008EC872 /* RegisterController.swift in Sources */,
 				1C71BA0620892CFA008EC872 /* Models.swift in Sources */,
 				1C265EFA208A750600079F55 /* MainMenuController.swift in Sources */,
 				1C71BA0020892A6E008EC872 /* CheckButton.swift in Sources */,
+				1CDB8975208BA28500F42F09 /* ChangeParameterController.swift in Sources */,
 				1C71B9F9208913AB008EC872 /* QRReaderController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

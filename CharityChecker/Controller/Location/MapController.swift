@@ -52,9 +52,6 @@ class MapController: UIViewController {
         view.addSubview(mapView)
         mapView.isHidden = true
         
-        if address != nil{
-            
-        }
     }
     @IBAction func goPlacePressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "goToPlaces", sender: self)
@@ -106,10 +103,24 @@ class MapController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if address != nil{
+        
+        let nav = parent as! UINavigationController
+        let vc = nav.childViewControllers[1] as! RegisterController
+        if selectedPlace != nil{
+            vc.address = selectedPlace?.formattedAddress
+        }
+        else if address != nil{
+            vc.longitude = address.longitude
+            vc.latitude = address.latitude
+        }
+            
+        else if address != nil{
             self.addressMarker.map = nil
+            
         }
     }
+    
+    
 }
 
 extension MapController: CLLocationManagerDelegate {

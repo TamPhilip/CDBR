@@ -40,7 +40,7 @@ class LogInController: UIViewController{
     }
     
     @IBAction func handleSignUp(_ sender: Any) {
-        if type == "Charity" && buttonOutlet.isHidden == false{
+        if type == "Charity" || type == "Owner" || type == "Operator"{
             //QR DETECTOR
             var detector:CIDetector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy:CIDetectorAccuracyHigh])!
             
@@ -56,11 +56,14 @@ class LogInController: UIViewController{
             }
             
             if qrCodeLink=="" {
-                navigationItem.title = "Wrong QR Code"
-            }else{
-              
+                let alert = UIAlertController(title: "Change Picture", message: "Please change the picture to a QRPicture", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Understood", style: .default) { (action) in
+                    
+                }
+                alert.addAction(action)
+                present(alert, animated: true, completion: nil)
+                return
             }
-            buttonOutlet.isHidden = true
             
             //QR ADDRESS remove
             if qrCodeLink.hasPrefix("ethereum%3A") == true{
@@ -93,12 +96,14 @@ class LogInController: UIViewController{
             destinationVC?.type = type
         }
     }
-    @IBAction func backButton(_ sender: UIBarButtonItem) {
+    
+    @IBAction func dismissPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     func updateUI(){
         navigationItem.title = type
+        navigationController?.navigationBar.tintColor = UIColor.black
     }
 
 }

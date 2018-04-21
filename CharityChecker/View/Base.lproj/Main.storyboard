@@ -25,7 +25,7 @@
                                         <rect key="frame" x="165.5" y="38" width="44" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0D-3k-ef0" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
@@ -37,7 +37,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.37489542176674345" green="0.45498203879264626" blue="0.59847882371856764" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Iya-jl-MYg"/>
                                 </constraints>
@@ -60,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.8862745098" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gTt-eE-0PT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8OF-cA-IxB"/>
                             <constraint firstItem="M7B-OO-V9a" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Kzs-Dc-psm"/>
@@ -74,58 +74,56 @@
                     <connections>
                         <outlet property="messageLabel" destination="M7B-OO-V9a" id="oiM-Ma-uNI"/>
                         <outlet property="topBar" destination="gTt-eE-0PT" id="3ST-A5-Fml"/>
+                        <segue destination="QGY-9h-ASB" kind="show" id="MaF-Ss-mkg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="335" y="979"/>
         </scene>
+        <!--Public Location Controller-->
+        <scene sceneID="7cM-G0-q6c">
+            <objects>
+                <viewController id="QGY-9h-ASB" customClass="PublicLocationController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W55-rA-IU0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgh-Z0-ksV" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="16" y="20" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="3FG-as-zi7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qdy-Yu-pk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="333.60000000000002" y="1805.8470764617693"/>
+        </scene>
         <!--Log In Controller-->
         <scene sceneID="Z1M-9H-tQ9">
             <objects>
                 <viewController id="Qo7-o6-48h" customClass="LogInController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o3a-n7-Xkl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7hy-bo-2Xn">
-                                <rect key="frame" x="0.0" y="74" width="375" height="346"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="346"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b1G-s2-WOE">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Donate" translatesAutoresizingMaskIntoConstraints="NO" id="b1G-s2-WOE">
                                         <rect key="frame" x="27" y="8" width="320" height="303"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKB-73-lpO">
-                                        <rect key="frame" x="32" y="4" width="310" height="310"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Please Add Image"/>
-                                        <connections>
-                                            <action selector="imageIsPressed:" destination="Qo7-o6-48h" eventType="touchUpInside" id="aAp-tc-n5W"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BT3-0Y-bmJ">
-                                <rect key="frame" x="0.0" y="550" width="375" height="117"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJz-a9-8k4">
-                                        <rect key="frame" x="73" y="49" width="228" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Register">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="registerButton:" destination="Qo7-o6-48h" eventType="touchUpInside" id="sg3-3O-02P"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ywl-xo-KfI">
-                                <rect key="frame" x="0.0" y="428" width="375" height="114"/>
+                                <rect key="frame" x="0.0" y="354" width="375" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oKE-m9-IV5" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
@@ -137,17 +135,49 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.73545172636631972" blue="0.67756436258411468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BT3-0Y-bmJ">
+                                <rect key="frame" x="0.0" y="466" width="375" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJz-a9-8k4" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                        <rect key="frame" x="117" y="28" width="140" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Register">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerButton:" destination="Qo7-o6-48h" eventType="touchUpInside" id="sg3-3O-02P"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83647422853658182" green="0.98172634840011597" blue="0.96399737678783126" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.80000537630000002" green="0.79999023680000003" blue="0.80000048879999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="98k-hs-JPv"/>
                     </view>
                     <navigationItem key="navigationItem" id="q0A-sw-2CD">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="0bF-Qc-KUi">
-                            <connections>
-                                <action selector="backButton:" destination="Qo7-o6-48h" id="Hwc-9o-Qys"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="L7z-Tk-K1p">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KpT-YJ-Cn8" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="dismissPressed:" destination="Qo7-o6-48h" eventType="touchUpInside" id="OqJ-3t-nmq"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="8rT-24-XpB">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CKB-73-lpO" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change"/>
+                                <connections>
+                                    <action selector="imageIsPressed:" destination="Qo7-o6-48h" eventType="touchUpInside" id="aAp-tc-n5W"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -155,7 +185,6 @@
                         <outlet property="imageView" destination="b1G-s2-WOE" id="Uqd-IV-gbC"/>
                         <segue destination="rSH-mk-LSc" kind="show" identifier="goToRegister" id="RYY-Jp-NYa"/>
                         <segue destination="WUM-rj-4AH" kind="presentation" modalTransitionStyle="crossDissolve" id="dxu-9v-rop"/>
-                        <segue destination="Kz8-kN-rH8" kind="show" id="Ho7-wK-pJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBX-G0-Wks" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -171,27 +200,50 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmc-wU-NR2" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                <rect key="frame" x="144" y="255" width="86" height="30"/>
+                                <rect key="frame" x="117" y="213" width="140" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Get QRCode"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="WUM-rj-4AH" eventType="touchUpInside" id="rfU-QU-Cwl"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH9-kN-wwm" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                <rect key="frame" x="133" y="318" width="109" height="30"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH9-kN-wwm" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="117" y="323" width="140" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Scan QRCode"/>
+                                <state key="normal" title="Change Box"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="WUM-rj-4AH" eventType="touchUpInside" id="EUF-Rb-yGl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Owner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5G-5C-ryd">
+                                <rect key="frame" x="119" y="127" width="136" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhN-5F-9JK" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="115" y="420" width="140" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Box"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="WUM-rj-4AH" eventType="touchUpInside" id="9VQ-km-XtB"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="3Yk-6Q-fox"/>
                     </view>
                     <connections>
-                        <segue destination="i9c-S9-KXh" kind="show" id="AL1-X2-oAg"/>
-                        <segue destination="BYZ-38-t0r" kind="show" id="O87-KU-Fzr"/>
+                        <outlet property="typeLabel" destination="N5G-5C-ryd" id="uAs-qp-egc"/>
+                        <segue destination="i9c-S9-KXh" kind="show" identifier="goToGetQRCode" id="AL1-X2-oAg"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToQRReader" id="O87-KU-Fzr"/>
+                        <segue destination="UnS-eF-8AI" kind="show" identifier="goToChangeParameter" id="zD3-by-nF9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6L-Xv-czf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384.8" y="104.7976011994003"/>
+            <point key="canvasLocation" x="1406" y="161"/>
         </scene>
         <!--GetQR Code Controller-->
         <scene sceneID="pRH-bl-zGP">
@@ -200,7 +252,14 @@
                     <view key="view" contentMode="scaleToFill" id="bHo-pP-y0l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsa-TJ-cK7" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="22" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="plB-2p-Xvf"/>
                     </view>
                 </viewController>
@@ -208,30 +267,99 @@
             </objects>
             <point key="canvasLocation" x="2521" y="105"/>
         </scene>
-        <!--Register Controller-->
-        <scene sceneID="0fV-wf-C4a">
+        <!--Change Parameter Controller-->
+        <scene sceneID="h5a-PX-TBZ">
             <objects>
-                <viewController id="Kz8-kN-rH8" customClass="QRRegisterController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lRa-kC-Dbm">
+                <viewController id="UnS-eF-8AI" customClass="ChangeParameterController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bi-Ho-774">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="yqs-PL-e60"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQJ-TR-Q41" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="22" y="20" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="UnS-eF-8AI" eventType="touchUpInside" id="GWz-pt-vfO"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GyB-O8-b9K">
+                                <rect key="frame" x="0.0" y="158" width="375" height="509"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SfD-rG-jv2">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SfD-rG-jv2" id="aih-O3-398">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Brd-Nc-vrF">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Brd-Nc-vrF" id="322-0O-V7n">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="L73-cD-c1A">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L73-cD-c1A" id="dVm-Dc-y8J">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-Uo-EW0">
+                                <rect key="frame" x="52" y="94" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Remove"/>
+                                <connections>
+                                    <action selector="removeButtonPressed:" destination="UnS-eF-8AI" eventType="touchUpInside" id="Z2u-XR-p3t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgU-7C-NRI">
+                                <rect key="frame" x="161" y="94" width="53" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Change"/>
+                                <connections>
+                                    <action selector="changeButtonPressed:" destination="UnS-eF-8AI" eventType="touchUpInside" id="MBc-aw-Vr7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp3-cH-w5U">
+                                <rect key="frame" x="259" y="94" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="thirdButtonPressed:" destination="UnS-eF-8AI" eventType="touchUpInside" id="vdQ-C4-S9g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92156862745098034" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="GNd-tO-XSo"/>
                     </view>
                     <connections>
-                        <segue destination="rSH-mk-LSc" kind="show" id="Pm4-rS-Y1A"/>
+                        <outlet property="removeButton" destination="rmr-Uo-EW0" id="Uki-Y6-TZp"/>
+                        <outlet property="secondButton" destination="FgU-7C-NRI" id="ifo-oP-Xu9"/>
+                        <outlet property="tableView" destination="GyB-O8-b9K" id="euL-28-EvM"/>
+                        <outlet property="thirdButton" destination="qp3-cH-w5U" id="0fF-xu-zcO"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="70v-xh-Olt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hm1-iA-vPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2209" y="-1588"/>
+            <point key="canvasLocation" x="2520.8000000000002" y="977.36131934032994"/>
         </scene>
         <!--Title-->
         <scene sceneID="F5O-Mr-afU">
             <objects>
                 <viewController id="rSH-mk-LSc" customClass="RegisterController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="85l-hk-e6H">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L0q-UN-pFS">
@@ -244,15 +372,15 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GTD-rI-xn3">
                                 <rect key="frame" x="73" y="75" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEf-cG-B2x">
                                 <rect key="frame" x="73" y="149" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="seh-M3-X0r">
@@ -265,22 +393,15 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Telephone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V17-L2-c5P">
                                 <rect key="frame" x="73" y="237" width="228" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oae-gM-8PL">
-                                <rect key="frame" x="0.0" y="318" width="375" height="113"/>
+                                <rect key="frame" x="0.0" y="318" width="375" height="131"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.88668465283205566" blue="0.88375726834874391" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jeg-wf-IvA" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                <rect key="frame" x="126" y="559" width="122" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Register"/>
-                                <connections>
-                                    <action selector="handleRegister:" destination="rSH-mk-LSc" eventType="touchUpInside" id="z7w-h0-owW"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sG-ma-Kk3">
                                 <rect key="frame" x="73" y="111" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -288,7 +409,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEA-QR-BwW">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEA-QR-BwW" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
                                 <rect key="frame" x="73" y="111" width="228" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Map"/>
@@ -296,14 +417,35 @@
                                     <action selector="mapButtonPressed:" destination="rSH-mk-LSc" eventType="touchUpInside" id="tkL-2i-ERk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jeg-wf-IvA" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="126" y="504" width="122" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="handleRegister:" destination="rSH-mk-LSc" eventType="touchUpInside" id="z7w-h0-owW"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cardboardbox" translatesAutoresizingMaskIntoConstraints="NO" id="v3a-Xy-EEK">
+                                <rect key="frame" x="26" y="47" width="349" height="449"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select an Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a10-ci-BsS">
+                                <rect key="frame" x="84" y="237" width="217" height="111"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="XxO-BM-bkN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="RvF-4F-r87"/>
                     <connections>
+                        <outlet property="addressLabel" destination="a10-ci-BsS" id="Mj1-1k-R3h"/>
                         <outlet property="firstField" destination="1sG-ma-Kk3" id="D1E-Gf-GSy"/>
                         <outlet property="firstLabel" destination="GTD-rI-xn3" id="25M-Ub-ljc"/>
+                        <outlet property="imageView" destination="v3a-Xy-EEK" id="rDb-Us-2Go"/>
                         <outlet property="mapButton" destination="gEA-QR-BwW" id="94f-dX-pmM"/>
                         <outlet property="pickerView" destination="oae-gM-8PL" id="sU3-Fb-zWa"/>
                         <outlet property="secondField" destination="L0q-UN-pFS" id="ZTE-uv-N8A"/>
@@ -318,14 +460,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWy-Z6-0xI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521" y="-751"/>
+            <point key="canvasLocation" x="2520.8000000000002" y="-751.57421289355329"/>
         </scene>
         <!--Title-->
         <scene sceneID="fEo-Gl-VRE">
             <objects>
                 <viewController id="rPe-8l-Pvi" customClass="MapController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ycs-4N-YIZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ZmH-U8-IgY"/>
@@ -348,33 +490,28 @@
         <!--Places View Controller-->
         <scene sceneID="9Ef-92-Yzd">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cyp-OT-7cI" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="byo-ZG-NrW" customClass="PlacesViewController" customModule="CharityChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0PU-qW-lQC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zZ1-ig-sPr">
-                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2hl-ub-zP1">
-                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2hl-ub-zP1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.92941176469999998" green="0.8862745098" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6jn-7X-K2k"/>
                     </view>
                     <connections>
-                        <outlet property="searchbarOutlet" destination="zZ1-ig-sPr" id="xPV-Yp-wa7"/>
                         <outlet property="tableView" destination="2hl-ub-zP1" id="8xn-O8-F9G"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cyp-OT-7cI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4376.8000000000002" y="-752.47376311844084"/>
+            <point key="canvasLocation" x="4376.5" y="-752.5"/>
         </scene>
         <!--Start Up Controller-->
         <scene sceneID="7HR-7w-XcK">
@@ -385,23 +522,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charity Checker" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em6-He-3g7">
-                                <rect key="frame" x="53" y="63" width="269" height="146"/>
+                                <rect key="frame" x="53" y="63" width="269" height="247"/>
                                 <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="60"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qz0-0n-n5x" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                <rect key="frame" x="117" y="362" width="140" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="RwX-bm-mZ9"/>
-                                </constraints>
-                                <state key="normal" title="Owner"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="tnB-Y4-o9U" eventType="touchUpInside" id="VJp-Tr-Tpt"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34H-lH-clS" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                <rect key="frame" x="117" y="471" width="140" height="60"/>
+                                <rect key="frame" x="117" y="490" width="140" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1Pi-e6-Y9u"/>
                                 </constraints>
@@ -411,7 +538,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRz-jj-UEy" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                <rect key="frame" x="117" y="570" width="140" height="60"/>
+                                <rect key="frame" x="117" y="567" width="140" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="dtz-Eb-iza"/>
                                 </constraints>
@@ -421,7 +548,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rj3-hO-ZZ2" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                <rect key="frame" x="117" y="269" width="140" height="60"/>
+                                <rect key="frame" x="117" y="313" width="140" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0JR-3d-XuZ"/>
                                 </constraints>
@@ -430,37 +557,61 @@
                                     <action selector="buttonPressed:" destination="tnB-Y4-o9U" eventType="touchUpInside" id="8zG-kc-kCg"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Box" translatesAutoresizingMaskIntoConstraints="NO" id="mx0-br-X10">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="348"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="348" id="pTc-FT-lob"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qz0-0n-n5x" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                <rect key="frame" x="117" y="405" width="140" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="RwX-bm-mZ9"/>
+                                </constraints>
+                                <state key="normal" title="Owner"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="tnB-Y4-o9U" eventType="touchUpInside" id="VJp-Tr-Tpt"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mx0-br-X10" firstAttribute="top" secondItem="pxR-o6-Jma" secondAttribute="top" id="001-Ti-aMI"/>
                             <constraint firstItem="rj3-hO-ZZ2" firstAttribute="leading" secondItem="hJk-lz-e22" secondAttribute="leading" constant="117" id="0aO-c7-MRI"/>
-                            <constraint firstItem="rj3-hO-ZZ2" firstAttribute="top" secondItem="Em6-He-3g7" secondAttribute="bottom" constant="60" id="3XM-2l-bHS"/>
+                            <constraint firstItem="rj3-hO-ZZ2" firstAttribute="top" secondItem="Em6-He-3g7" secondAttribute="bottom" constant="3" id="3XM-2l-bHS"/>
                             <constraint firstItem="hJk-lz-e22" firstAttribute="trailing" secondItem="Em6-He-3g7" secondAttribute="trailing" constant="53" id="Aeb-Fx-Dbh"/>
-                            <constraint firstItem="34H-lH-clS" firstAttribute="top" secondItem="qz0-0n-n5x" secondAttribute="bottom" constant="49" id="Dpk-Xu-iIV"/>
-                            <constraint firstItem="qz0-0n-n5x" firstAttribute="top" secondItem="rj3-hO-ZZ2" secondAttribute="bottom" constant="33" id="EiL-u2-GlT"/>
+                            <constraint firstItem="34H-lH-clS" firstAttribute="top" secondItem="qz0-0n-n5x" secondAttribute="bottom" constant="25" id="Dpk-Xu-iIV"/>
+                            <constraint firstItem="qz0-0n-n5x" firstAttribute="top" secondItem="rj3-hO-ZZ2" secondAttribute="bottom" constant="32" id="EiL-u2-GlT"/>
                             <constraint firstItem="Em6-He-3g7" firstAttribute="top" secondItem="hJk-lz-e22" secondAttribute="top" constant="43" id="JYF-CE-0X1"/>
                             <constraint firstItem="hJk-lz-e22" firstAttribute="trailing" secondItem="iRz-jj-UEy" secondAttribute="trailing" constant="118" id="M9K-aW-P1G"/>
+                            <constraint firstItem="mx0-br-X10" firstAttribute="trailing" secondItem="hJk-lz-e22" secondAttribute="trailing" id="Rh7-wK-Eny"/>
                             <constraint firstItem="Em6-He-3g7" firstAttribute="leading" secondItem="hJk-lz-e22" secondAttribute="leading" constant="53" id="SFb-qj-o2O"/>
                             <constraint firstItem="34H-lH-clS" firstAttribute="leading" secondItem="hJk-lz-e22" secondAttribute="leading" constant="117" id="UJ1-qx-3ER"/>
                             <constraint firstItem="hJk-lz-e22" firstAttribute="trailing" secondItem="qz0-0n-n5x" secondAttribute="trailing" constant="118" id="Zau-Cc-Olf"/>
                             <constraint firstItem="iRz-jj-UEy" firstAttribute="leading" secondItem="hJk-lz-e22" secondAttribute="leading" constant="117" id="bsB-Gc-KpD"/>
                             <constraint firstItem="34H-lH-clS" firstAttribute="height" secondItem="rj3-hO-ZZ2" secondAttribute="height" id="eLp-tD-E94"/>
-                            <constraint firstItem="hJk-lz-e22" firstAttribute="bottom" secondItem="iRz-jj-UEy" secondAttribute="bottom" constant="37" id="h9N-Th-7ao"/>
+                            <constraint firstItem="hJk-lz-e22" firstAttribute="bottom" secondItem="iRz-jj-UEy" secondAttribute="bottom" constant="40" id="h9N-Th-7ao"/>
                             <constraint firstItem="iRz-jj-UEy" firstAttribute="height" secondItem="rj3-hO-ZZ2" secondAttribute="height" id="kAQ-MI-iLe"/>
                             <constraint firstItem="qz0-0n-n5x" firstAttribute="leading" secondItem="hJk-lz-e22" secondAttribute="leading" constant="117" id="nUB-xj-9AR"/>
                             <constraint firstItem="qz0-0n-n5x" firstAttribute="height" secondItem="rj3-hO-ZZ2" secondAttribute="height" id="oon-bg-amL"/>
                             <constraint firstItem="hJk-lz-e22" firstAttribute="trailing" secondItem="34H-lH-clS" secondAttribute="trailing" constant="118" id="smc-F4-iet"/>
                             <constraint firstItem="hJk-lz-e22" firstAttribute="trailing" secondItem="rj3-hO-ZZ2" secondAttribute="trailing" constant="118" id="uub-aY-jST"/>
-                            <constraint firstItem="iRz-jj-UEy" firstAttribute="top" secondItem="34H-lH-clS" secondAttribute="bottom" constant="39" id="zgY-0f-pgv"/>
+                            <constraint firstItem="mx0-br-X10" firstAttribute="leading" secondItem="hJk-lz-e22" secondAttribute="leading" id="wRC-3E-gRi"/>
+                            <constraint firstItem="iRz-jj-UEy" firstAttribute="top" secondItem="34H-lH-clS" secondAttribute="bottom" constant="17" id="zgY-0f-pgv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hJk-lz-e22"/>
                     </view>
                     <connections>
                         <outlet property="charityButton" destination="rj3-hO-ZZ2" id="kJA-Y1-QMw"/>
+                        <outlet property="imageView" destination="mx0-br-X10" id="mU5-mM-BAe"/>
                         <outlet property="operatorButton" destination="34H-lH-clS" id="1O5-JN-4db"/>
                         <outlet property="ownerButton" destination="qz0-0n-n5x" id="N8P-EE-cHN"/>
                         <outlet property="publicButton" destination="iRz-jj-UEy" id="dLJ-Lm-5ho"/>
                         <outlet property="titleLabel" destination="Em6-He-3g7" id="q4P-CG-Zr7"/>
+                        <outletCollection property="buttons" destination="rj3-hO-ZZ2" collectionClass="NSMutableArray" id="ZtA-2S-OWy"/>
+                        <outletCollection property="buttons" destination="qz0-0n-n5x" collectionClass="NSMutableArray" id="bf2-mn-4XN"/>
+                        <outletCollection property="buttons" destination="34H-lH-clS" collectionClass="NSMutableArray" id="M2c-Jb-w3D"/>
+                        <outletCollection property="buttons" destination="iRz-jj-UEy" collectionClass="NSMutableArray" id="8cn-GI-bqu"/>
                         <segue destination="jUA-AY-EeN" kind="show" identifier="goToLogIn" id="IzO-h2-xqW"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToQRReader" id="LJk-Kd-nVV"/>
                         <segue destination="WUM-rj-4AH" kind="show" identifier="loggedIn" id="uAK-NG-WDq"/>
@@ -475,9 +626,16 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jUA-AY-EeN" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Fel-uy-Oeo">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Fel-uy-Oeo">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -489,9 +647,13 @@
             <point key="canvasLocation" x="445.60000000000002" y="-748.87556221889065"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Box" width="650" height="698"/>
+        <image name="Donate" width="1024" height="1024"/>
+        <image name="cardboardbox" width="373" height="360"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pm4-rS-Y1A"/>
-        <segue reference="dxu-9v-rop"/>
+        <segue reference="uAK-NG-WDq"/>
         <segue reference="O87-KU-Fzr"/>
     </inferredMetricsTieBreakers>
 </document>

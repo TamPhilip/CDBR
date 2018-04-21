@@ -12,7 +12,7 @@ import UIKit
 class PlacesViewController: UIViewController {
    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchbarOutlet: UISearchBar!
+
     
     // An array to hold the list of possible locations.
     var likelyPlaces: [GMSPlace] = []
@@ -47,16 +47,13 @@ class PlacesViewController: UIViewController {
         tableView.dataSource = self
         
         tableView.reloadData()
-        
-        searchbarOutlet.delegate = self
-        searchbarOutlet.placeholder = "please enter your location"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         let nav = parent as! UINavigationController
         let vc = nav.childViewControllers[2] as! MapController
         vc.selectedPlace = selectedPlace
-        vc.selected = true
+        vc.selected = selected
         print("moved")
     }
 }
@@ -99,16 +96,6 @@ extension PlacesViewController: UITableViewDataSource {
             return 1
         }
         return 0
-    }
-}
-
-extension PlacesViewController : UISearchBarDelegate{
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
     }
 }
 

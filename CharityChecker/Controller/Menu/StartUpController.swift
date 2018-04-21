@@ -16,12 +16,15 @@ class StartUpController: UIViewController {
     @IBOutlet weak var operatorButton: CheckButton!
     @IBOutlet weak var publicButton: CheckButton!
     @IBOutlet weak var charityButton: CheckButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var buttons: [CheckButton]!
     
     var type : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.adjustsFontSizeToFitWidth = true
+        view.sendSubview(toBack: imageView)
         
         let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         let keystoreManager = KeystoreManager.managerForPath(userDir + "/keystore")

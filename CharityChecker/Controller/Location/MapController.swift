@@ -108,13 +108,14 @@ class MapController: UIViewController {
         let vc = nav.childViewControllers[1] as! RegisterController
         if selectedPlace != nil{
             vc.address = selectedPlace?.formattedAddress
+            vc.longitude = selectedPlace?.coordinate.longitude
+            vc.latitude = selectedPlace?.coordinate.latitude
         }
         else if address != nil{
             vc.longitude = address.longitude
             vc.latitude = address.latitude
         }
-            
-        else if address != nil{
+        if address != nil{
             self.addressMarker.map = nil
             
         }

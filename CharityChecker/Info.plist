@@ -47,5 +47,7 @@
 	<string>Need Location to provide address</string>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>To log In using your QR Code</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Add QR Codes</string>
 </dict>
 </plist>

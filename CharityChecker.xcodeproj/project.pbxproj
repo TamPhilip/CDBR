@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		1C031AD9208BCAF7009F6D91 /* ParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C031AD7208BCAF7009F6D91 /* ParameterCell.swift */; };
 		1C031ADA208BCAF7009F6D91 /* ParameterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C031AD8208BCAF7009F6D91 /* ParameterCell.xib */; };
+		1C031ADC208C08EB009F6D91 /* GetDonationBoxQRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C031ADB208C08EB009F6D91 /* GetDonationBoxQRController.swift */; };
 		1C265EF8208A703400079F55 /* GetQRCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C265EF7208A703400079F55 /* GetQRCodeController.swift */; };
 		1C265EFA208A750600079F55 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C265EF9208A750600079F55 /* MainMenuController.swift */; };
+		1C624792208D10CD00928BE1 /* ScanQRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C624791208D10CD00928BE1 /* ScanQRController.swift */; };
 		1C71423C2089955B00328C3F /* PlacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71423B2089955B00328C3F /* PlacesViewController.swift */; };
 		1C71B9E720890C8C008EC872 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C71B9E620890C8C008EC872 /* AppDelegate.swift */; };
 		1C71B9EC20890C8C008EC872 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C71B9EA20890C8C008EC872 /* Main.storyboard */; };
@@ -31,8 +33,10 @@
 /* Begin PBXFileReference section */
 		1C031AD7208BCAF7009F6D91 /* ParameterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCell.swift; sourceTree = "<group>"; };
 		1C031AD8208BCAF7009F6D91 /* ParameterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParameterCell.xib; sourceTree = "<group>"; };
+		1C031ADB208C08EB009F6D91 /* GetDonationBoxQRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDonationBoxQRController.swift; sourceTree = "<group>"; };
 		1C265EF7208A703400079F55 /* GetQRCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQRCodeController.swift; sourceTree = "<group>"; };
 		1C265EF9208A750600079F55 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
+		1C624791208D10CD00928BE1 /* ScanQRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRController.swift; sourceTree = "<group>"; };
 		1C71423B2089955B00328C3F /* PlacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewController.swift; sourceTree = "<group>"; };
 		1C71B9E320890C8C008EC872 /* CharityChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CharityChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C71B9E620890C8C008EC872 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 			children = (
 				1C71B9F8208913AB008EC872 /* QRReaderController.swift */,
 				1C265EF7208A703400079F55 /* GetQRCodeController.swift */,
+				1C031ADB208C08EB009F6D91 /* GetDonationBoxQRController.swift */,
+				1C624791208D10CD00928BE1 /* ScanQRController.swift */,
 			);
 			path = QR;
 			sourceTree = "<group>";
@@ -301,8 +307,10 @@
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/GooglePlacesPicker/GooglePlacesPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/libsodium/libsodium.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1_ios/secp256k1_ios.framework",
 				"${BUILT_PRODUCTS_DIR}/web3swift/web3swift.framework",
@@ -315,8 +323,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GooglePlacesPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libsodium.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1_ios.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/web3swift.framework",
@@ -360,11 +370,13 @@
 				1C71B9FE20892A1B008EC872 /* StartUpController.swift in Sources */,
 				1C71B9E720890C8C008EC872 /* AppDelegate.swift in Sources */,
 				1C71BA0220892CC3008EC872 /* LogInController.swift in Sources */,
+				1C031ADC208C08EB009F6D91 /* GetDonationBoxQRController.swift in Sources */,
 				1CDB8978208BA47600F42F09 /* PublicLocationController.swift in Sources */,
 				1C71BA08208938CC008EC872 /* RegisterController.swift in Sources */,
 				1C71BA0620892CFA008EC872 /* Models.swift in Sources */,
 				1C265EFA208A750600079F55 /* MainMenuController.swift in Sources */,
 				1C71BA0020892A6E008EC872 /* CheckButton.swift in Sources */,
+				1C624792208D10CD00928BE1 /* ScanQRController.swift in Sources */,
 				1CDB8975208BA28500F42F09 /* ChangeParameterController.swift in Sources */,
 				1C71B9F9208913AB008EC872 /* QRReaderController.swift in Sources */,
 			);

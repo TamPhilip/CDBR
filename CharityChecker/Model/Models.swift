@@ -14,15 +14,19 @@ struct Dropbox{
     var telephone : String
     var owner : String
     var charity : String
-    var location : String
+    var latitude : String
+    var longitude : String
     var etherAddress : String
     
-    init(operate : String, owner : String, charity : String, location : String, etherAddress: String, telephone: String) {
+    init(operate : String, owner : String, charity : String, latitude : String, longitude : String, etherAddress: String, telephone: String) {
         self.operate = operate
         self.owner = owner
         self.charity = charity
-        self.location = location
+        self.latitude = latitude
+        self.longitude = longitude
         self.etherAddress = etherAddress
         self.telephone = telephone
     }
 }
+
+

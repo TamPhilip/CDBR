@@ -12,17 +12,17 @@ import GoogleMaps
 import web3swift
 import BigInt
 
-class QRReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-
-      let jsonString = "[{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"donate\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"setOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"charityNumber\",\"type\":\"uint256\"}],\"name\":\"createCharity\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"latitude\",\"type\":\"string\"},{\"name\":\"longitude\",\"type\":\"string\"},{\"name\":\"time\",\"type\":\"string\"},{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"createDropBox\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"ownerUnregisterBox\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"withdraw\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"charityMap\",\"outputs\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"charityNumber\",\"type\":\"uint256\"},{\"name\":\"isSet\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"charityUnregisterBox\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"},{\"name\":\"time\",\"type\":\"string\"}],\"name\":\"changeTime\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"ownerMap\",\"outputs\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"latitude\",\"type\":\"string\"},{\"name\":\"longitude\",\"type\":\"string\"},{\"name\":\"isSet\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"boxMap\",\"outputs\":[{\"name\":\"charity\",\"type\":\"address\"},{\"name\":\"operator\",\"type\":\"address\"},{\"name\":\"owner\",\"type\":\"address\"},{\"name\":\"latitude\",\"type\":\"string\"},{\"name\":\"longitude\",\"type\":\"string\"},{\"name\":\"time\",\"type\":\"string\"},{\"name\":\"balance\",\"type\":\"uint256\"},{\"name\":\"isSet\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"latitude\",\"type\":\"string\"},{\"name\":\"longitude\",\"type\":\"string\"}],\"name\":\"createOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"},{\"name\":\"latitude\",\"type\":\"string\"},{\"name\":\"longitude\",\"type\":\"string\"}],\"name\":\"changeLocation\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"deleteDropBox\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"setOperator\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"operatorAddress\",\"type\":\"address\"}],\"name\":\"deleteOperator\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"\",\"type\":\"address\"}],\"name\":\"operatorMap\",\"outputs\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"phoneNumber\",\"type\":\"uint256\"},{\"name\":\"operatorType\",\"type\":\"string\"},{\"name\":\"isSet\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"charityAddress\",\"type\":\"address\"}],\"name\":\"deleteCharity\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"ownerAddress\",\"type\":\"address\"}],\"name\":\"deleteOwner\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"name\",\"type\":\"string\"},{\"name\":\"phoneNumber\",\"type\":\"uint256\"},{\"name\":\"operatorType\",\"type\":\"string\"}],\"name\":\"createOperator\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"operatorUnregisterBox\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"name\":\"dropBoxAddress\",\"type\":\"address\"}],\"name\":\"setCharity\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"}]"
+class QRReaderController: UIViewController{
     
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     var type : String?
     var add : Bool?
+    var updateField : String?
     var dropBoxLocation : CLLocationCoordinate2D?
     var qrCode : String?
+    var set = false
     
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var messageLabel: UILabel!
@@ -31,8 +31,147 @@ class QRReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelega
         
         super.viewDidLoad()
         
-        
         messageLabel.adjustsFontSizeToFitWidth = true
+        
+        showVideo()
+       
+    }
+    
+    
+    func parameters(qrCode: String){
+        let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let keystoreManager = KeystoreManager.managerForPath(userDir + "/keystore")
+        let ks : EthereumKeystoreV3?
+        
+        ks = keystoreManager?.walletForAddress((keystoreManager?.addresses![0])!) as! EthereumKeystoreV3
+        
+        let web3Rinkeby = Web3.InfuraRinkebyWeb3()
+        web3Rinkeby.addKeystoreManager(keystoreManager)
+        var options = Web3Options.defaultOptions()
+        options.gasLimit = BigUInt(10000000)
+        options.from = ks?.addresses![0]
+        options.value = 0
+        print("here")
+        
+        let platform = web3Rinkeby.contract(jsonString, at: contractAddress, abiVersion: 2)
+        let otherPlatform = web3Rinkeby.contract(moneyBoxString)
+        
+        if set == false{
+            if type! == "Public"{
+                let parameter = [qrCode] as [AnyObject]
+                do{
+                    let coordinates = try platform?.method("boxMap", parameters: parameter, options: options)?.call(options: options).dematerialize()
+                    if coordinates != nil{
+                        
+                        let latitude = coordinates!["latitude"] as! String
+                        let longitude = coordinates!["longitude"] as! String
+                        dropBoxLocation = CLLocationCoordinate2D.init(latitude: CLLocationDegrees(latitude)!, longitude: CLLocationDegrees(longitude)!)
+                    }else{
+                        fatalError()
+                    }
+                }catch{
+                    print(error)
+                }
+         
+                let alert = UIAlertController(title: "Check Map", message: "Do you want to find the dropbox on a map and then donate?", preferredStyle: .alert)
+                let confirm = UIAlertAction(title: "Yes", style: .default) { (action) in
+                    self.performSegue(withIdentifier: "goToCheckLocation", sender: self)
+                }
+                let incorrect = UIAlertAction(title: "No", style: .default) { (action) in
+                    
+                }
+                alert.addAction(confirm)
+                alert.addAction(incorrect)
+                present(alert, animated: true, completion: nil)
+            }
+            else if (type! == "Charity" || type! == "Operator") && add == false{
+              
+                //SET PROPER PARAMS
+                let parameter = [qrCode] as [AnyObject]
+                do{
+                    let withdraw = try platform!.method("withdraw", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
+                    print(withdraw)
+                    
+                    
+                }
+                catch{
+                    print(error)
+                }
+            }
+            else if type! == "Operator" && add == true{
+                print(add)
+                print("Arrived")
+                let parameter = [keystoreManager?.addresses?.first, qrCode] as [AnyObject]
+                do{
+                    let operate = try platform!.method("setOperator", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
+                    
+                    print(operate)
+                    
+                    let otherContract = try otherPlatform?.method("setOperator", parameters: [], options: options)!.send(password: "Whocares").dematerialize()
+                    
+                    print(otherContract)
+                    
+                    done()
+                }
+                catch{
+                    print(error)
+                }
+                
+            }
+            else if type! == "Owner"{
+                
+                let parameter = [qrCode] as [AnyObject]
+                do{
+                    let owner = try platform!.method("setOwner", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
+                    print(owner)
+                    
+                    done()
+                }
+                catch{
+                    print(error)
+                }
+            }
+        }
+        else{
+            if updateField == "Operator"{
+                //Register Operator
+            }else{
+                //Register Owner
+            }
+        }
+    }
+    
+    func done(){
+        let alert = UIAlertController(title: "Box Added!", message: "The box has been linked to the \(type)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okay!", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToCheckLocation"{
+            let destionationVC = segue.destination as! PublicLocationController
+            destionationVC.dropboxLocation = dropBoxLocation
+            destionationVC.qrCode = qrCode
+        }
+    }
+    
+    @IBAction func restartButtonPressed(_ sender: CheckButton) {
+        self.captureSession?.startRunning()
+        
+    }
+    @IBAction func dismissButton(_ sender: UIButton) {
+        dismiss(animated: true) {
+            self.captureSession?.stopRunning()
+        }
+    }
+}
+
+
+extension QRReaderController : AVCaptureMetadataOutputObjectsDelegate{
+    func showVideo(){
         
         captureSession = AVCaptureSession()
         
@@ -64,7 +203,7 @@ class QRReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
             view.layer.addSublayer(videoPreviewLayer!)
-  
+            
             // Start video capture.
             captureSession!.startRunning()
             view.bringSubview(toFront: topBar)
@@ -84,8 +223,6 @@ class QRReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             print(error)
             return
         }
-        
-       
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -109,105 +246,9 @@ class QRReaderController: UIViewController, AVCaptureMetadataOutputObjectsDelega
                 qrCode = metadataObj.stringValue
                 print(qrCode)
                 captureSession?.stopRunning()
-                let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-                let keystoreManager = KeystoreManager.managerForPath(userDir + "/keystore")
-                let ks : EthereumKeystoreV3?
-                
-                ks = keystoreManager?.walletForAddress((keystoreManager?.addresses![0])!) as! EthereumKeystoreV3
-                
-                let web3Rinkeby = Web3.InfuraRinkebyWeb3()
-                web3Rinkeby.addKeystoreManager(keystoreManager)
-                var options = Web3Options.defaultOptions()
-                options.gasLimit = BigUInt(10000000)
-                options.from = ks?.addresses![0]
-                options.value = 0
-                print("here")
-                let contractAddress =  EthereumAddress("0x87D7aFBBFe2653a8b9C491C64dA92Ce2527F8346")
-                
-                let platform = web3Rinkeby.contract(jsonString, at: contractAddress, abiVersion: 2)
-                
-                if type! == "Public"{
-                    
-                    let alert = UIAlertController(title: "Check Map", message: "Do you want to find the dropbox on a map and then donate?", preferredStyle: .alert)
-                    let confirm = UIAlertAction(title: "Yes", style: .default) { (action) in
-                        self.performSegue(withIdentifier: "goToCheckLocation", sender: self)
-                    }
-                    let incorrect = UIAlertAction(title: "No", style: .default) { (action) in
-                        
-                    }
-                    alert.addAction(confirm)
-                    alert.addAction(incorrect)
-                    present(alert, animated: true, completion: nil)
-                }
-                else if (type! == "Charity" || type! == "Operator") && add == false{
-                    captureSession?.stopRunning()
-                    //SET PROPER PARAMS
-                   let parameter = [metadataObj.stringValue] as [AnyObject]
-                    do{
-                        let withdraw = try platform!.method("withdraw", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
-                        print(withdraw)
-                     
-                    }
-                    catch{
-                        print(error)
-                    }
-                }
-                else if type! == "Operator" && add == true{
-                      print(add)
-                    print("Arrived")
-                    let parameter = [qrCode!] as [AnyObject]
-                    do{
-                        let operate = try platform!.method("setOperator", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
-                    
-                        print(operate)
-                        let alert = UIAlertController(title: "Box Added!", message: "The box has been linked to the operator", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "Okay!", style: .default) { (action) in
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                        alert.addAction(action)
-                        self.present(alert, animated: true, completion: nil)
-                        
-                    }
-                    catch{
-                        print(error)
-                    }
-                   
-                }
-                else if type! == "Owner"{
-                    captureSession?.stopRunning()
-                    let parameter = [metadataObj.stringValue!] as [AnyObject]
-                    do{
-                        let owner = try platform!.method("setOwner", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
-                        print(owner)
-                        
-                        let alert = UIAlertController(title: "Box Added!", message: "The box has been linked to the owner", preferredStyle: .alert)
-                        let action = UIAlertAction(title: "Okay!", style: .default) { (action) in
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                        alert.addAction(action)
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                    catch{
-                        print(error)
-                    }
-                }
+                parameters(qrCode: qrCode!)
             }
         }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToCheckLocation"{
-            let destionationVC = segue.destination as! PublicLocationController
-            destionationVC.dropboxLocation = dropBoxLocation
-            destionationVC.qrCode = qrCode
-        }
-    }
-    
-    @IBAction func restartButtonPressed(_ sender: CheckButton) {
-        self.captureSession?.startRunning()
-    }
-    @IBAction func dismissButton(_ sender: UIButton) {
-        dismiss(animated: true) {
-            self.captureSession?.stopRunning()
-        }
-    }
+
 }

@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="335" y="979"/>
+            <point key="canvasLocation" x="-81" y="944"/>
         </scene>
         <!--Public Location Controller-->
         <scene sceneID="7cM-G0-q6c">
@@ -99,25 +99,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Agq-EV-6SG">
-                                <rect key="frame" x="0.0" y="539" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="611" width="375" height="56"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWZ-Cb-4b0" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                        <rect key="frame" x="38" y="32" width="85" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Donate"/>
-                                        <connections>
-                                            <action selector="donatePressed:" destination="QGY-9h-ASB" eventType="touchUpInside" id="W1z-C3-3Or"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1n-AE-WFt">
-                                        <rect key="frame" x="145" y="33" width="186" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3r7-gg-EsI">
-                                        <rect key="frame" x="8" y="90" width="74" height="30"/>
+                                        <rect key="frame" x="8" y="13" width="74" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="REPORT">
                                             <color key="titleColor" red="0.92836290600000004" green="0.4048168063" blue="0.38428115839999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -129,7 +114,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="w64-MI-0fP"/>
+                                    <constraint firstAttribute="height" constant="56" id="w64-MI-0fP"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dy4-ms-ub7">
@@ -143,13 +128,13 @@
                                             <action selector="dismissButtonPressed:" destination="QGY-9h-ASB" eventType="touchUpInside" id="bFN-qf-eqx"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QRcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJY-Cj-boP">
-                                        <rect key="frame" x="112" y="18" width="255" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pdf-Qe-MrG">
+                                        <rect key="frame" x="98" y="20" width="258" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -169,18 +154,16 @@
                         <viewLayoutGuide key="safeArea" id="3FG-as-zi7"/>
                     </view>
                     <connections>
-                        <outlet property="amountField" destination="T1n-AE-WFt" id="1wZ-Bf-uCX"/>
-                        <outlet property="codeLabel" destination="hJY-Cj-boP" id="m2L-5z-dnV"/>
                         <outlet property="codeView" destination="dy4-ms-ub7" id="lXk-gK-arg"/>
                         <outlet property="dismissButton" destination="Kgh-Z0-ksV" id="MZV-lh-wXu"/>
-                        <outlet property="donateButtonPressed" destination="wWZ-Cb-4b0" id="5dq-HH-xMr"/>
                         <outlet property="donateView" destination="Agq-EV-6SG" id="PEb-HY-iOx"/>
                         <outlet property="reportButton" destination="3r7-gg-EsI" id="DAf-pk-Ize"/>
+                        <outlet property="textField" destination="pdf-Qe-MrG" id="vMS-fv-El9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qdy-Yu-pk6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333.60000000000002" y="1805.8470764617693"/>
+            <point key="canvasLocation" x="-82.400000000000006" y="1798.6506746626687"/>
         </scene>
         <!--Log In Controller-->
         <scene sceneID="Z1M-9H-tQ9">
@@ -351,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x6L-Xv-czf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1405.5999999999999" y="160.56971514242881"/>
+            <point key="canvasLocation" x="986" y="9"/>
         </scene>
         <!--GetQR Code Controller-->
         <scene sceneID="pRH-bl-zGP">
@@ -517,7 +500,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NXD-dy-GTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2124" y="975.56221889055485"/>
+            <point key="canvasLocation" x="2022" y="977"/>
         </scene>
         <!--ScanQR Controller-->
         <scene sceneID="p4B-GX-0kS">
@@ -601,11 +584,12 @@
                         <outlet property="dismissButton" destination="ZgG-z2-lRD" id="d8F-d7-Uhg"/>
                         <outlet property="dropboxbutton" destination="uaJ-Bk-jXe" id="vDd-TB-Zle"/>
                         <outlet property="imageView" destination="cdh-Ip-BvI" id="trC-eS-X8e"/>
+                        <outlet property="qrView" destination="wc5-cH-7pV" id="lTa-rp-JDo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qkw-Zj-x2l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221.5999999999999" y="975.56221889055485"/>
+            <point key="canvasLocation" x="2857" y="976"/>
         </scene>
         <!--Change Parameter Controller-->
         <scene sceneID="h5a-PX-TBZ">
@@ -615,42 +599,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GyB-O8-b9K">
-                                <rect key="frame" x="0.0" y="158" width="375" height="509"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9JM-zj-weQ">
+                                <rect key="frame" x="0.0" y="150" width="375" height="517"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="SfD-rG-jv2">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SfD-rG-jv2" id="aih-O3-398">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Brd-Nc-vrF">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Brd-Nc-vrF" id="322-0O-V7n">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="L73-cD-c1A">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L73-cD-c1A" id="dVm-Dc-y8J">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                            </tableView>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kJ-5j-epN">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qp3-cH-w5U" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                        <rect key="frame" x="276" y="112" width="84" height="30"/>
+                                        <rect key="frame" x="283" y="112" width="84" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
@@ -658,19 +615,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-Uo-EW0" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                        <rect key="frame" x="27" y="112" width="84" height="30"/>
+                                        <rect key="frame" x="8" y="112" width="84" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Remove"/>
                                         <connections>
                                             <action selector="removeButtonPressed:" destination="UnS-eF-8AI" eventType="touchUpInside" id="Z2u-XR-p3t"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQJ-TR-Q41" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
-                                        <rect key="frame" x="27" y="21" width="84" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Back"/>
-                                        <connections>
-                                            <action selector="dismissButtonPressed:" destination="UnS-eF-8AI" eventType="touchUpInside" id="GWz-pt-vfO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FgU-7C-NRI" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
@@ -681,33 +630,51 @@
                                             <action selector="changeButtonPressed:" destination="UnS-eF-8AI" eventType="touchUpInside" id="MBc-aw-Vr7"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duR-Ll-NGD" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                        <rect key="frame" x="283" y="20" width="84" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="startRecording:" destination="UnS-eF-8AI" eventType="touchUpInside" id="bta-Qe-cQ2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQJ-TR-Q41" customClass="CheckButton" customModule="CharityChecker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="20" width="84" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="dismissButtonPressed:" destination="UnS-eF-8AI" eventType="touchUpInside" id="GWz-pt-vfO"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.88627450980392153" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GyB-O8-b9K" firstAttribute="trailing" secondItem="GNd-tO-XSo" secondAttribute="trailing" id="6jh-bT-uwl"/>
-                            <constraint firstItem="GyB-O8-b9K" firstAttribute="leading" secondItem="GNd-tO-XSo" secondAttribute="leading" id="Jhm-Nj-Xw4"/>
+                            <constraint firstItem="9JM-zj-weQ" firstAttribute="trailing" secondItem="GNd-tO-XSo" secondAttribute="trailing" id="7vp-3X-959"/>
                             <constraint firstItem="6kJ-5j-epN" firstAttribute="trailing" secondItem="GNd-tO-XSo" secondAttribute="trailing" id="PUh-4j-Hur"/>
-                            <constraint firstItem="GyB-O8-b9K" firstAttribute="bottom" secondItem="GNd-tO-XSo" secondAttribute="bottom" id="R3s-ah-5Zg"/>
                             <constraint firstItem="6kJ-5j-epN" firstAttribute="leading" secondItem="GNd-tO-XSo" secondAttribute="leading" id="dEA-eb-C7j"/>
-                            <constraint firstItem="GyB-O8-b9K" firstAttribute="top" secondItem="6kJ-5j-epN" secondAttribute="bottom" constant="8" id="qWo-uj-VB5"/>
-                            <constraint firstItem="GyB-O8-b9K" firstAttribute="width" secondItem="6kJ-5j-epN" secondAttribute="height" multiplier="5:2" id="t76-nl-Sjf"/>
+                            <constraint firstItem="9JM-zj-weQ" firstAttribute="top" secondItem="6kJ-5j-epN" secondAttribute="bottom" id="nAz-hr-r6t"/>
+                            <constraint firstItem="9JM-zj-weQ" firstAttribute="width" secondItem="6kJ-5j-epN" secondAttribute="height" multiplier="5:2" id="qlH-Tg-cvl"/>
+                            <constraint firstItem="9JM-zj-weQ" firstAttribute="leading" secondItem="GNd-tO-XSo" secondAttribute="leading" id="t2i-nV-UEn"/>
+                            <constraint firstItem="9JM-zj-weQ" firstAttribute="bottom" secondItem="GNd-tO-XSo" secondAttribute="bottom" id="wo4-qa-2dg"/>
                             <constraint firstItem="6kJ-5j-epN" firstAttribute="top" secondItem="8bi-Ho-774" secondAttribute="top" id="zgt-tW-fld"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GNd-tO-XSo"/>
                     </view>
                     <connections>
+                        <outlet property="qrView" destination="9JM-zj-weQ" id="gCd-f7-xzi"/>
                         <outlet property="removeButton" destination="rmr-Uo-EW0" id="Uki-Y6-TZp"/>
                         <outlet property="secondButton" destination="FgU-7C-NRI" id="ifo-oP-Xu9"/>
-                        <outlet property="tableView" destination="GyB-O8-b9K" id="euL-28-EvM"/>
+                        <outlet property="startRecordingButton" destination="duR-Ll-NGD" id="Eyg-x6-trv"/>
                         <outlet property="thirdButton" destination="qp3-cH-w5U" id="0fF-xu-zcO"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goUpdate" id="l2e-rI-YXH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hm1-iA-vPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3209" y="976"/>
+            <point key="canvasLocation" x="1079" y="853"/>
         </scene>
         <!--Title-->
         <scene sceneID="F5O-Mr-afU">
@@ -1009,6 +976,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MVU-E1-muH"/>
-        <segue reference="O87-KU-Fzr"/>
+        <segue reference="l2e-rI-YXH"/>
     </inferredMetricsTieBreakers>
 </document>

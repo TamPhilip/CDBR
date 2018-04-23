@@ -46,7 +46,7 @@ class StartUpController: UIViewController {
         }
         
         print(type)
-        type = getType()
+        type = getType() 
         
         if type == "Public"{
             

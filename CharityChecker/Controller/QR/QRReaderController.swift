@@ -121,15 +121,28 @@ class QRReaderController: UIViewController{
             else if type! == "Owner"{
                 
                 let parameter = [qrCode] as [AnyObject]
+                let ownerAddress = [keystoreManager?.addresses?.first?.address] as [AnyObject]
                 do{
+                    print(qrCode)
+                    let coordinates = try platform?.method("ownerMap", parameters: ownerAddress , options: options)?.call(options: options).dematerialize()
+                    
                     let owner = try platform!.method("setOwner", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
+                    
                     print(owner)
                     
-                    done()
+                    let latitude = coordinates!["latitude"] as! String
+                    let longitude = coordinates!["longitude"] as! String
+            
+                    let param = [qrCode, latitude, longitude] as [AnyObject]
+                    
+                    let own = try platform!.method("changeLocation", parameters: param, options: options)?.send(password: "Whocares").dematerialize()
+                    
+                    print("---------------------------\(own)")
                 }
                 catch{
                     print(error)
                 }
+                  done()
             }
         }
         else{

@@ -104,8 +104,6 @@ class QRReaderController: UIViewController{
                     let withdraw = try platform!.method("withdraw", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
                     print(withdraw)
                     
-                    
-                    
                 }
                 catch{
                     print(error)
@@ -113,13 +111,13 @@ class QRReaderController: UIViewController{
             }
             else if type! == "Operator" && add == true{
            
-                let parameter = [keystoreManager?.addresses?.first, qrCode] as [AnyObject]
+                let parameter = [qrCode] as [AnyObject]
                 do{
                     let operate = try platform!.method("setOperator", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
                     
                     print(operate)
-                    
-                    let otherContract = try otherPlatform?.method("setOperator", parameters: [], options: options)!.send(password: "Whocares").dematerialize()
+//
+//                    let otherContract = try otherPlatform?.method("setOperator", parameters: [], options: options)!.send(password: "Whocares").dematerialize()
                     
                     
                     done()

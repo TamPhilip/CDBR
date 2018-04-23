@@ -234,7 +234,6 @@ extension RegisterController : UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         operatorType = operatorTypeArray[row]
     }
-    
 }
 
 extension RegisterController : UITextFieldDelegate{

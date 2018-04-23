@@ -10,6 +10,7 @@ import UIKit
 import web3swift
 import BigInt
 import AVFoundation
+import GoogleMaps
 
 class ChangeParameterController: UIViewController {
 
@@ -22,9 +23,12 @@ class ChangeParameterController: UIViewController {
     var type : String?
     var mode : String?
     var current : String?
+    var locationQR : String?
+    
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
+    var dropboxLocation : CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +37,13 @@ class ChangeParameterController: UIViewController {
        
         // Do any additional setup after loading the view.
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if mode == "Location"{
+            changeParameters(qrCode: locationQR!, mode: mode!)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -108,6 +118,10 @@ class ChangeParameterController: UIViewController {
             destinationVC.set = true
             destinationVC.updateField = current
         }
+        if segue.identifier == "goToChooseLocation"{
+            let destinationVC = segue.destination as! MapController
+            destinationVC.new = false
+        }
     }
     @IBAction func startRecording(_ sender: Any) {
         startRecordingButton.setTitle("Restart", for: .normal)
@@ -115,7 +129,137 @@ class ChangeParameterController: UIViewController {
         startVideo()
     }
     
+    func changeParameters(qrCode: String, mode: String){
+        let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let keystoreManager = KeystoreManager.managerForPath(userDir + "/keystore")
+        let ks : EthereumKeystoreV3?
+        
+        ks = keystoreManager?.walletForAddress((keystoreManager?.addresses![0])!) as! EthereumKeystoreV3
+        
+        let web3Rinkeby = Web3.InfuraRinkebyWeb3()
+        web3Rinkeby.addKeystoreManager(keystoreManager)
+        var options = Web3Options.defaultOptions()
+        options.gasLimit = BigUInt(10000000)
+        options.from = ks?.addresses![0]
+        options.value = 0
+        
+        let parameter = [qrCode] as [AnyObject]
+        
+        let platform = web3Rinkeby.contract(jsonString, at: contractAddress, abiVersion: 2)
+        
+        if mode == "Update"{
+            let alert = UIAlertController(title: "Update Dropbox", message: "Change Operator or Owner", preferredStyle: .alert)
+            let opt = UIAlertAction(title: "Operator", style: .default) { (action) in
+                //Unregister Operator
+                self.current = "Operator"
+                self.performSegue(withIdentifier: "goUpdate", sender: self)
+            }
+            let own = UIAlertAction(title: "Owner", style: .default) { (action) in
+                //Unregister Owner
+                self.current = "Owner"
+                self.performSegue(withIdentifier: "goUpdate", sender: self)
+            }
+            alert.addAction(own)
+            alert.addAction(opt)
+            present(alert, animated: true, completion: nil)
+        }
+        if mode == "Location"{
+            //TO DO: Fix Location (GET LOCATION)
+            locationQR = qrCode
+            if dropboxLocation == nil{
+                performSegue(withIdentifier: "goToChooseLocation", sender: self)
+            }
+            updateLocation(location: dropboxLocation!, locationQR: locationQR!, platform: platform!, parameter: parameter, options: options)
+            
+        }
+        if mode == "Unregister"{
+            unregister(platform: platform!, parameter: parameter, options: options)
+        }
+        if mode == "Remove"{
+            
+        }
+    }
     
+    func updateLocation(location: CLLocationCoordinate2D, locationQR: String, platform: web3.web3contract, parameter: [AnyObject], options: Web3Options ){
+        let completionAlert = UIAlertController(title: "Unregistered", message: "You have changed the location!", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okay!", style: .default, handler: nil)
+        completionAlert.addAction(action)
+        
+        let alert = UIAlertController(title: "Confirmation", message: "Do you want to change location to latitude:\(dropboxLocation!.latitude) and longitude: \(dropboxLocation!.longitude)?", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
+            do{
+                 let result = try platform.method("changeLocation", parameters: parameter, options: options)?.send(password: "Whocares").dematerialize()
+                print(result)
+            }catch{
+                print(error)
+            }
+            self.present(completionAlert, animated: true, completion: {
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+        let no = UIAlertAction(title: "No", style: .default) { (action) in
+            self.captureSession?.startRunning()
+            self.dropboxLocation = nil
+            self.locationQR = nil
+        }
+        alert.addAction(yes)
+        alert.addAction(no)
+        present(alert, animated: true, completion:nil)
+    }
+    
+    func unregister(platform: web3.web3contract, parameter: [AnyObject], options: Web3Options){
+        
+        let completionAlert = UIAlertController(title: "Unregistered", message: "You have been unregistered", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okay!", style: .default, handler: nil)
+        completionAlert.addAction(action)
+        
+        let alert = UIAlertController(title: "Confirmation", message: "Do you want to unregister as the \(type!.lowercased()) for this drop box?", preferredStyle: .alert)
+        let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
+            do{
+                let result = try platform.method("\(self.type!.lowercased())UnregisterBox", parameters: parameter, options: options)?.send(password: "Whocares").dematerialize()
+                print(result)
+            }
+            catch{
+                print(error)
+            }
+            self.present(completionAlert, animated: true, completion: {
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+        let no = UIAlertAction(title: "No", style: .default) { (action) in
+            self.captureSession?.startRunning()
+        }
+        alert.addAction(yes)
+        alert.addAction(no)
+        present(alert, animated: true, completion:nil)
+    }
+}
+
+extension ChangeParameterController : AVCaptureMetadataOutputObjectsDelegate {
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        // Check if the metadataObjects array is not nil and it contains at least one object.
+        if metadataObjects.count == 0 {
+            qrCodeFrameView?.frame = CGRect.zero
+            return
+        }
+        
+        // Get the metadata object.
+        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+        
+        if metadataObj.type == AVMetadataObject.ObjectType.qr {
+            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
+            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
+            qrCodeFrameView?.frame = barCodeObject!.bounds
+            
+            if metadataObj.stringValue != nil {
+                
+                captureSession?.stopRunning()
+                let dropboxAddress = metadataObj.stringValue!
+                changeParameters(qrCode: dropboxAddress, mode: mode!)
+            }
+        }
+        
+    }
     
     func startVideo(){
         captureSession = AVCaptureSession()
@@ -166,145 +310,5 @@ class ChangeParameterController: UIViewController {
             print(error)
             return
         }
-    }
-    
-    func changeParameters(qrCode: String, mode: String){
-        let userDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let keystoreManager = KeystoreManager.managerForPath(userDir + "/keystore")
-        let ks : EthereumKeystoreV3?
-        
-        ks = keystoreManager?.walletForAddress((keystoreManager?.addresses![0])!) as! EthereumKeystoreV3
-        
-        let web3Rinkeby = Web3.InfuraRinkebyWeb3()
-        web3Rinkeby.addKeystoreManager(keystoreManager)
-        var options = Web3Options.defaultOptions()
-        options.gasLimit = BigUInt(10000000)
-        options.from = ks?.addresses![0]
-        options.value = 0
-        
-        let parameter = [qrCode] as [AnyObject]
-        
-        let platform = web3Rinkeby.contract(jsonString, at: contractAddress, abiVersion: 2)
-        
-        if mode == "Update"{
-            let alert = UIAlertController(title: "Update Dropbox", message: "Change Operator or Owner", preferredStyle: .alert)
-            let opt = UIAlertAction(title: "Operator", style: .default) { (action) in
-                //Unregister Operator
-                self.current = "Operator"
-                self.performSegue(withIdentifier: "goUpdate", sender: self)
-            }
-            let own = UIAlertAction(title: "Owner", style: .default) { (action) in
-                //Unregister Owner
-                self.current = "Owner"
-                self.performSegue(withIdentifier: "goUpdate", sender: self)
-            }
-            alert.addAction(own)
-            alert.addAction(opt)
-            present(alert, animated: true, completion: nil)
-        }
-        if mode == "Location"{
-            //TO DO: Fix Location (GET LOCATION)
-            let latitude = 0
-            let longitude = 0
-            
-            
-            let parameter = [qrCode, latitude, longitude] as [AnyObject]
-            do{
-                let location = try platform?.method("changeLocation", parameters: parameter, options: options)?.send(password: "Whocares").dematerialize()
-                print(location)
-            }
-            catch{
-                print(error)
-            }
-        }
-        if mode == "Unregister"{
-            let completionAlert = UIAlertController(title: "Unregistered", message: "You have been unregistered", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Okay!", style: .default, handler: nil)
-            completionAlert.addAction(action)
-            if type == "Owner"{
-                let alert = UIAlertController(title: "Confirmation", message: "Do you want to unregister as the owner for this drop box?", preferredStyle: .alert)
-                let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
-                    do{
-                        let result = try platform?.method("ownerUnregisterBox", parameters: parameter, options: options)?.send(password: "Whocares").dematerialize()
-                        print(result)
-                    }
-                    catch{
-                        print(error)
-                    }
-                }
-                let no = UIAlertAction(title: "No", style: .default) { (action) in
-                    self.present(completionAlert, animated: true, completion: {
-                        self.captureSession?.startRunning()
-                    })
-                }
-            }
-            else if type == "Charity"{
-                let alert = UIAlertController(title: "Confirmation", message: "Do you want to unregister as the charity for this drop box?", preferredStyle: .alert)
-                let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
-                    do{
-                        let result = try platform?.method("charityUnregisterBox", parameters: parameter, options: options)?.send(password: "Whocares").dematerialize()
-                        print(result)
-                    }
-                    catch{
-                        print(error)
-                    }
-                }
-                let no = UIAlertAction(title: "No", style: .default) { (action) in
-                    self.present(completionAlert, animated: true, completion: {
-                        self.captureSession?.startRunning()
-                    })
-                }
-            }
-            else if type == "Operator"{
-                let alert = UIAlertController(title: "Confirmation", message: "Do you want to unregister as the operator for this drop box?", preferredStyle: .alert)
-                let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
-                    do{
-                        let result = try platform?.method("operatorUnregisterBox", parameters: parameter, options: options)?.send(password: "Whocares").dematerialize()
-                        print(result)
-                    }
-                    catch{
-                        print(error)
-                    }
-                }
-                let no = UIAlertAction(title: "No", style: .default) { (action) in
-                    self.present(completionAlert, animated: true, completion: {
-                        self.captureSession?.startRunning()
-                    })
-                }
-                alert.addAction(yes)
-                alert.addAction(no)
-                present(alert, animated: true, completion:nil)
-            }
-        }
-        if mode == "Remove"{
-            
-        }
-    }
-}
-
-extension ChangeParameterController : AVCaptureMetadataOutputObjectsDelegate {
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        // Check if the metadataObjects array is not nil and it contains at least one object.
-        if metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
-            return
-        }
-        
-        // Get the metadata object.
-        let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-        
-        if metadataObj.type == AVMetadataObject.ObjectType.qr {
-            // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
-            let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
-            
-            if metadataObj.stringValue != nil {
-                
-                captureSession?.stopRunning()
-                let dropboxAddress = metadataObj.stringValue!
-                changeParameters(qrCode: dropboxAddress, mode: mode!)
-            }
-        }
-        
     }
 }

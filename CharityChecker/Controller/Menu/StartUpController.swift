@@ -106,8 +106,6 @@ class StartUpController: UIViewController {
             options.from = keyAddress
             options.value = 0
             
-            
-            
             let platform = web3Rinkeby.contract(jsonString, at: contractAddress, abiVersion: 2)
             
             

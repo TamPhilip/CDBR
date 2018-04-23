@@ -17,12 +17,15 @@ class QRReaderController: UIViewController{
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
+    
+    var dropBoxLocation : CLLocationCoordinate2D?
+    var charityName : String?
+    var qrCode : String?
+    
+    var updateField : String?
+    var set = false
     var type : String?
     var add : Bool?
-    var updateField : String?
-    var dropBoxLocation : CLLocationCoordinate2D?
-    var qrCode : String?
-    var set = false
     
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var messageLabel: UILabel!
@@ -63,8 +66,17 @@ class QRReaderController: UIViewController{
                     let coordinates = try platform?.method("boxMap", parameters: parameter, options: options)?.call(options: options).dematerialize()
                     if coordinates != nil{
                         
+                        let charity = coordinates!["charity"] as! String
+                        
+                        if charity == nil || charity == ""{
+                           charityName = "Charity has not been set!"
+                        }else{
+                            charityName = charity
+                        }
+                        
                         let latitude = coordinates!["latitude"] as! String
                         let longitude = coordinates!["longitude"] as! String
+                        
                         dropBoxLocation = CLLocationCoordinate2D.init(latitude: CLLocationDegrees(latitude)!, longitude: CLLocationDegrees(longitude)!)
                     }else{
                         fatalError()
@@ -93,14 +105,14 @@ class QRReaderController: UIViewController{
                     print(withdraw)
                     
                     
+                    
                 }
                 catch{
                     print(error)
                 }
             }
             else if type! == "Operator" && add == true{
-                print(add)
-                print("Arrived")
+           
                 let parameter = [keystoreManager?.addresses?.first, qrCode] as [AnyObject]
                 do{
                     let operate = try platform!.method("setOperator", parameters: parameter, options: options)!.send(password: "Whocares").dematerialize()
@@ -109,14 +121,12 @@ class QRReaderController: UIViewController{
                     
                     let otherContract = try otherPlatform?.method("setOperator", parameters: [], options: options)!.send(password: "Whocares").dematerialize()
                     
-                    print(otherContract)
                     
                     done()
                 }
                 catch{
                     print(error)
                 }
-                
             }
             else if type! == "Owner"{
                 
@@ -165,16 +175,17 @@ class QRReaderController: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToCheckLocation"{
-            let destionationVC = segue.destination as! PublicLocationController
-            destionationVC.dropboxLocation = dropBoxLocation
-            destionationVC.qrCode = qrCode
+            let destinationVC = segue.destination as! PublicLocationController
+            destinationVC.dropboxLocation = dropBoxLocation
+            destinationVC.qrCode = qrCode
+            destinationVC.charityName = charityName
         }
     }
     
     @IBAction func restartButtonPressed(_ sender: CheckButton) {
         self.captureSession?.startRunning()
-        
     }
+    
     @IBAction func dismissButton(_ sender: UIButton) {
         dismiss(animated: true) {
             self.captureSession?.stopRunning()

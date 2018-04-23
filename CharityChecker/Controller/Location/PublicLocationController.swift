@@ -19,19 +19,20 @@ class PublicLocationController: UIViewController {
     @IBOutlet weak var donateView: UIView!
     @IBOutlet weak var codeView: UIView!
     @IBOutlet weak var textField: UITextField!
-    
+    @IBOutlet weak var charityLabel: UILabel!
     
     var locationManager = CLLocationManager()
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
-    // An array to hold the list of likely places.
+    let defaultLocation = CLLocation(latitude: 45.504166666667, longitude: -73.577222222222)
     var likelyPlaces: [GMSPlace] = []
     
+    var charityName : String?
     var dropboxLocation : CLLocationCoordinate2D?
     var qrCode : String?
-    let defaultLocation = CLLocation(latitude: 45.504166666667, longitude: -73.577222222222)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,9 +68,15 @@ class PublicLocationController: UIViewController {
         let marker = GMSMarker(position: dropboxLocation!)
         marker.title = "DropBox Locatiom"
         marker.icon = GMSMarker.markerImage(with: UIColor.blue)
-        marker.snippet = "\(dropboxLocation!)"
+        if charityName == "Charity has not been set!"{
+            marker.snippet = "Charity has not been set!"
+        }else{
+            marker.snippet = "\(charityName!) Donation Box"
+        }
+      
         marker.map = mapView
         
+        charityLabel.text = ("Charity: \(charityName!)")
     }
     
 

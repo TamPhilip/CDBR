@@ -24,6 +24,7 @@ class MapController: UIViewController {
     var selectedPlace: GMSPlace?
     var selected : Bool = false
     
+    var new : Bool = true
     var address : CLLocationCoordinate2D!
     var addressMarker : GMSMarker!
     var addressSet : Bool = false
@@ -103,22 +104,28 @@ class MapController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        if new == true{
+            let nav = parent as! UINavigationController
+            let vc = nav.childViewControllers[1] as! RegisterController
+            if selectedPlace != nil{
+                vc.address = selectedPlace?.formattedAddress
+                vc.longitude = selectedPlace?.coordinate.longitude
+                vc.latitude = selectedPlace?.coordinate.latitude
+            }
+            else if address != nil{
+                vc.longitude = address.longitude
+                vc.latitude = address.latitude
+            }
+            if address != nil{
+                self.addressMarker.map = nil
+                
+            }
+        }else{
+            let vc = parent as! ChangeParameterController
+            vc.dropboxLocation? = address
+           
+        }
         
-        let nav = parent as! UINavigationController
-        let vc = nav.childViewControllers[1] as! RegisterController
-        if selectedPlace != nil{
-            vc.address = selectedPlace?.formattedAddress
-            vc.longitude = selectedPlace?.coordinate.longitude
-            vc.latitude = selectedPlace?.coordinate.latitude
-        }
-        else if address != nil{
-            vc.longitude = address.longitude
-            vc.latitude = address.latitude
-        }
-        if address != nil{
-            self.addressMarker.map = nil
-            
-        }
     }
     
     
